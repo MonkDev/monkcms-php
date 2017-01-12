@@ -13,6 +13,8 @@ sessions, caching, Easy Edit, etc. This library strips all of that away to
 provide only what's absolutely necessary to access content through the MonkCMS
 API. It's ideal for use in web apps, command line scripts, APIs, and more.
 
+*   [Documentation](https://monkdev.github.io/monkcms-php/classes/Monk.Cms.html)
+
 Overview
 --------
 
