@@ -1,6 +1,7 @@
 MonkCMS PHP
 ===========
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/monkdev/monkcms.svg?style=flat)](https://packagist.org/packages/monkdev/monkcms)
 [![Build Status](https://img.shields.io/travis/MonkDev/monkcms-php/dev.svg?style=flat)](https://travis-ci.org/MonkDev/monkcms-php)
 
 A PHP client for accessing the MonkCMS API in non-website environments.
@@ -162,3 +163,21 @@ Each tool can also be run individually:
 *   [PHP Mess Detector](http://phpmd.org): `$ composer phpmd`
 *   [SensioLabs Security Checker](https://github.com/sensiolabs/security-checker):
     `$ composer security-checker`
+
+Deployment
+----------
+
+Publishing a release to [Packagist](https://packagist.org) simply requires
+creating a git tag:
+
+```bash
+$ git tag -a vMAJOR.MINOR.PATCH -m "Version MAJOR.MINOR.PATCH"
+$ git push origin vMAJOR.MINOR.PATCH
+```
+
+Be sure to choose the correct version by following [Semantic Versioning](http://semver.org).
+
+### Publish Documentation
+
+After releasing a new version, the documentation must be manually built and
+published to the `gh-pages` branch.
