@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="MonkCMS PHP" version="2.8.5">
+  <partials/>
+  <file path="Cms.php" generated-path="Cms.html" hash="4060bb06c5ae8710c99a6ce57eda3680" package="Default">
+    <docblock line="0">
+      <description>Global Monk namespace.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Requests_Session">\Requests_Session</namespace-alias>
+    <class final="false" abstract="false" namespace="Monk" line="14" package="Default">
+      <extends/>
+      <name>Cms</name>
+      <full_name>\Monk\Cms</full_name>
+      <docblock line="14">
+        <description>A PHP client for accessing the MonkCMS API in non-website environments.</description>
+        <long-description></long-description>
+        <tag name="author" line="14" description="Monk Development, Inc."/>
+        <tag name="package" line="14" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="41" package="Default">
+        <name>__construct</name>
+        <full_name>\Monk\Cms::__construct()</full_name>
+        <docblock line="41">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="41" description="&lt;p&gt;Config values.&lt;/p&gt;" type="array" variable="$config">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="41" description="" type="\Monk\Cms">
+            <type>\Monk\Cms</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$config</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="55" package="Default">
+        <name>setDefaultConfig</name>
+        <full_name>\Monk\Cms::setDefaultConfig()</full_name>
+        <docblock line="55">
+          <description>Set the default config values to fall back to when a value isn't set.</description>
+          <long-description>The new values are merged with the old ones, so not all values must be
+specified.</long-description>
+          <tag name="param" line="55" description="" type="array" variable="$defaultConfig">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="55" description="New default config values." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$defaultConfig</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="70" package="Default">
+        <name>setConfig</name>
+        <full_name>\Monk\Cms::setConfig()</full_name>
+        <docblock line="70">
+          <description>Set the config values.</description>
+          <long-description>If a value isn't set, the default config value is used.</long-description>
+          <tag name="param" line="70" description="" type="array" variable="$config">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="70" description="" type="\Monk\Cms">
+            <type>\Monk\Cms</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$config</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="84" package="Default">
+        <name>getConfig</name>
+        <full_name>\Monk\Cms::getConfig()</full_name>
+        <docblock line="84">
+          <description>Get the config values.</description>
+          <long-description>Includes the default config values for any values that weren't set.</long-description>
+          <tag name="return" line="84" description="" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="238" package="Default">
+        <name>get</name>
+        <full_name>\Monk\Cms::get()</full_name>
+        <docblock line="238">
+          <description>Request content from the API.</description>
+          <long-description>Parameters can be in one of two formats:
+
+  - A slash-separated string (`module/display[/find]`), followed by an
+    optional array of additional parameters.
+  - An array with all of the parameters.</long-description>
+          <tag name="return" line="238" description="JSON-decoded associative array." type="array">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="238" description="If the request fails." type="\Requests_Exception_HTTP">
+            <type>\Requests_Exception_HTTP</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>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</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
+  <namespace name="Monk" full_name="Monk"/>
+  <deprecated count="0"/>
+</project>
