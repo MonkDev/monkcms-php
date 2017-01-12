@@ -1,6 +1,8 @@
 MonkCMS PHP
 ===========
 
+[![Build Status](https://img.shields.io/travis/MonkDev/monkcms-php/dev.svg?style=flat)](https://travis-ci.org/MonkDev/monkcms-php)
+
 A PHP client for accessing the MonkCMS API in non-website environments.
 
 While `monkcms.php` is great for building websites, it includes many features
@@ -123,6 +125,11 @@ Testing is done with [PHPUnit](http://phpunit.de). To run the tests:
 ```bash
 $ composer test
 ```
+
+Continuous integration is setup through [Travis CI](https://travis-ci.org/MonkDev/monkcms-php)
+to run the tests against PHP v5.6, v7.0, and v7.1. ([Circle CI](https://circleci.com/gh/MonkDev/monkcms-php)
+is also setup to run the tests against PHP v5.6, but is backup for now until
+multiple versions can easily be specified.)
 
 ### Documentation
 
