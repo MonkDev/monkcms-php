@@ -3,6 +3,7 @@ MonkCMS PHP
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/monkdev/monkcms.svg?style=flat)](https://packagist.org/packages/monkdev/monkcms)
 [![Build Status](https://img.shields.io/travis/MonkDev/monkcms-php/dev.svg?style=flat)](https://travis-ci.org/MonkDev/monkcms-php)
+[![Dependency Status](https://img.shields.io/gemnasium/MonkDev/monkcms-php.svg?style=flat)](https://gemnasium.com/MonkDev/monkcms-php)
 
 A PHP client for accessing the MonkCMS API in non-website environments.
 
