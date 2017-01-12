@@ -1,0 +1,47 @@
+{
+  "name": "monkdev/monkcms",
+  "description": "A PHP client for accessing the MonkCMS API in non-website environments.",
+  "type": "library",
+  "keywords": ["monk", "monkdev", "monkcms", "cms", "ekklesia", "ekklesia360"],
+  "homepage": "https://github.com/MonkDev/monkcms-php",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Monk Development, Inc.",
+      "homepage": "http://monkdev.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/MonkDev/monkcms-php/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Monk\\": "lib/Monk/"
+    }
+  },
+  "require": {
+    "php": ">=5.3.0",
+    "rmccue/requests": ">=1.0"
+  },
+  "require-dev": {
+    "phpdocumentor/phpdocumentor": "~2.9.0",
+    "phploc/phploc": "~3.0.1",
+    "phpmd/phpmd": "~2.5.0",
+    "phpunit/phpunit": "~5.7.5",
+    "sebastian/phpcpd": "~2.0.4",
+    "sensiolabs/security-checker": "~4.0.0",
+    "squizlabs/php_codesniffer": "~2.7.1"
+  },
+  "scripts": {
+    "phpcpd": "phpcpd lib/",
+    "phpcs": "phpcs --standard=PSR2 lib/ tests/",
+    "phpdoc": "phpdoc",
+    "phplint": "php -l lib/**/*",
+    "phploc": "phploc lib/",
+    "phpmd": "phpmd lib/ text cleancode,codesize,controversial,design,naming,unusedcode",
+    "quality": ["@phplint", "@phpcs", "@phpcpd", "@phploc", "@phpmd", "@security-checker"],
+    "security-checker": "security-checker security:check",
+    "test": "phpunit"
+  }
+}
