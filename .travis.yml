@@ -10,5 +10,7 @@ sudo: false
 install: composer install --no-interaction
 
 script:
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit --coverage-clover clover.xml
   - composer quality
+
+after_script: bash <(curl -s https://codecov.io/bash)

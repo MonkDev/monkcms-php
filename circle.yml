@@ -4,9 +4,11 @@ machine:
 
 general:
   artifacts:
-    - "build/logs/clover.xml"
+    - clover.xml
 
 test:
   override:
-    - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+    - vendor/bin/phpunit --coverage-clover clover.xml
     - composer quality
+  post:
+    - bash <(curl -s https://codecov.io/bash)

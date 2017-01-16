@@ -3,6 +3,7 @@ MonkCMS PHP
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/monkdev/monkcms.svg?style=flat)](https://packagist.org/packages/monkdev/monkcms)
 [![Build Status](https://img.shields.io/travis/MonkDev/monkcms-php/dev.svg?style=flat)](https://travis-ci.org/MonkDev/monkcms-php)
+[![codecov](https://codecov.io/gh/MonkDev/monkcms-php/branch/dev/graph/badge.svg)](https://codecov.io/gh/MonkDev/monkcms-php)
 [![Dependency Status](https://img.shields.io/gemnasium/MonkDev/monkcms-php.svg?style=flat)](https://gemnasium.com/MonkDev/monkcms-php)
 
 A PHP client for accessing the MonkCMS API in non-website environments.
@@ -133,7 +134,9 @@ $ composer test
 Continuous integration is setup through [Travis CI](https://travis-ci.org/MonkDev/monkcms-php)
 to run the tests against PHP v5.6, v7.0, and v7.1. ([Circle CI](https://circleci.com/gh/MonkDev/monkcms-php)
 is also setup to run the tests against PHP v5.6, but is backup for now until
-multiple versions can easily be specified.)
+multiple versions can easily be specified.) The code coverage results are sent
+to [Codecov](https://codecov.io/gh/MonkDev/monkcms-php) during CI for tracking
+over time. Badges for both are dispayed at the top of this README.
 
 ### Documentation
 
