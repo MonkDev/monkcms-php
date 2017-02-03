@@ -111,7 +111,7 @@ $content = $cms->get(array(
 in associative array form. So, for example, a sermon's title can be accessed at
 `$content['show']['title']`.
 
-If a failure occurs, `get` throws a `Requests_Exception_HTTP`.
+If a failure occurs, `get` throws a `Monk\Cms\Exception`.
 
 Development
 -----------
