@@ -4,10 +4,10 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use Requests_Session;
 use Requests_Response;
-use Requests_Exception_HTTP_400;
 
 use Tests\Helpers;
 use Monk\Cms;
+use Monk\Cms\Exception;
 
 class CmsTest extends TestCase
 {
@@ -217,7 +217,7 @@ class CmsTest extends TestCase
             'siteSecret' => 'secret'
         ));
 
-        $this->expectException(Requests_Exception_HTTP_400::class);
+        $this->expectException(Exception::class);
 
         $cms->get('sermon/list');
     }

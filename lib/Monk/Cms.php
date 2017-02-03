@@ -5,6 +5,9 @@
 namespace Monk;
 
 use Requests_Session;
+use Requests_Exception_HTTP;
+
+use Monk\Cms\Exception;
 
 /**
  * A PHP client for accessing the MonkCMS API in non-website environments.
@@ -180,7 +183,7 @@ class Cms
      *
      * @param  array $queryParams Param name => value associative array.
      * @return array JSON-decoded associative array.
-     * @throws \Requests_Exception_HTTP If the request fails.
+     * @throws Exception If the request fails.
      */
     private function request(array $queryParams)
     {
@@ -189,7 +192,12 @@ class Cms
         $request = $this->getRequestsSession();
 
         $response = $request->get($this->buildRequestUrl($queryParams), array(), $this->buildRequestAuth());
-        $response->throw_for_status();
+
+        try {
+            $response->throw_for_status();
+        } catch (Requests_Exception_HTTP $requestsException) {
+            throw new Exception($requestsException->getReason(), $requestsException->getCode());
+        }
 
         $responseBody = substr($response->body, 10);
 
@@ -233,7 +241,7 @@ class Cms
      *   - An array with all of the parameters.
      *
      * @return array JSON-decoded associative array.
-     * @throws \Requests_Exception_HTTP If the request fails.
+     * @throws Exception If the request fails.
      */
     public function get()
     {
