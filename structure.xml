@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="MonkCMS PHP" version="2.8.5">
   <partials/>
-  <file path="Cms.php" generated-path="Cms.html" hash="4060bb06c5ae8710c99a6ce57eda3680" package="Default">
+  <file path="Cms.php" generated-path="Cms.html" hash="e118972519ac9c886cf9a1296ccbfebf" package="Default">
     <docblock line="0">
       <description>Global Monk namespace.</description>
       <long-description></long-description>
       <tag name="package" line="0" description="Default"/>
     </docblock>
     <namespace-alias name="Requests_Session">\Requests_Session</namespace-alias>
-    <class final="false" abstract="false" namespace="Monk" line="14" package="Default">
+    <namespace-alias name="Requests_Exception_HTTP">\Requests_Exception_HTTP</namespace-alias>
+    <namespace-alias name="Exception">\Monk\Cms\Exception</namespace-alias>
+    <class final="false" abstract="false" namespace="Monk" line="17" package="Default">
       <extends/>
       <name>Cms</name>
       <full_name>\Monk\Cms</full_name>
-      <docblock line="14">
+      <docblock line="17">
         <description>A PHP client for accessing the MonkCMS API in non-website environments.</description>
         <long-description></long-description>
-        <tag name="author" line="14" description="Monk Development, Inc."/>
-        <tag name="package" line="14" description="Default"/>
+        <tag name="author" line="17" description="Monk Development, Inc."/>
+        <tag name="package" line="17" description="Default"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="41" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="44" package="Default">
         <name>__construct</name>
         <full_name>\Monk\Cms::__construct()</full_name>
-        <docblock line="41">
+        <docblock line="44">
           <description>Constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="41" description="&lt;p&gt;Config values.&lt;/p&gt;" type="array" variable="$config">
+          <tag name="param" line="44" description="&lt;p&gt;Config values.&lt;/p&gt;" type="array" variable="$config">
             <type>array</type>
           </tag>
-          <tag name="return" line="41" description="" type="\Monk\Cms">
+          <tag name="return" line="44" description="" type="\Monk\Cms">
             <type>\Monk\Cms</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -38,17 +40,17 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="55" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Monk" line="58" package="Default">
         <name>setDefaultConfig</name>
         <full_name>\Monk\Cms::setDefaultConfig()</full_name>
-        <docblock line="55">
+        <docblock line="58">
           <description>Set the default config values to fall back to when a value isn't set.</description>
           <long-description>The new values are merged with the old ones, so not all values must be
 specified.</long-description>
-          <tag name="param" line="55" description="" type="array" variable="$defaultConfig">
+          <tag name="param" line="58" description="" type="array" variable="$defaultConfig">
             <type>array</type>
           </tag>
-          <tag name="return" line="55" description="New default config values." type="array">
+          <tag name="return" line="58" description="New default config values." type="array">
             <type>array</type>
           </tag>
         </docblock>
@@ -58,16 +60,16 @@ specified.</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="70" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="73" package="Default">
         <name>setConfig</name>
         <full_name>\Monk\Cms::setConfig()</full_name>
-        <docblock line="70">
+        <docblock line="73">
           <description>Set the config values.</description>
           <long-description>If a value isn't set, the default config value is used.</long-description>
-          <tag name="param" line="70" description="" type="array" variable="$config">
+          <tag name="param" line="73" description="" type="array" variable="$config">
             <type>array</type>
           </tag>
-          <tag name="return" line="70" description="" type="\Monk\Cms">
+          <tag name="return" line="73" description="" type="\Monk\Cms">
             <type>\Monk\Cms</type>
           </tag>
           <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
@@ -78,40 +80,60 @@ specified.</long-description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="84" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="87" package="Default">
         <name>getConfig</name>
         <full_name>\Monk\Cms::getConfig()</full_name>
-        <docblock line="84">
+        <docblock line="87">
           <description>Get the config values.</description>
           <long-description>Includes the default config values for any values that weren't set.</long-description>
-          <tag name="return" line="84" description="" type="array">
+          <tag name="return" line="87" description="" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="238" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Monk" line="246" package="Default">
         <name>get</name>
         <full_name>\Monk\Cms::get()</full_name>
-        <docblock line="238">
+        <docblock line="246">
           <description>Request content from the API.</description>
           <long-description>Parameters can be in one of two formats:
 
   - A slash-separated string (`module/display[/find]`), followed by an
     optional array of additional parameters.
   - An array with all of the parameters.</long-description>
-          <tag name="return" line="238" description="JSON-decoded associative array." type="array">
+          <tag name="return" line="246" description="JSON-decoded associative array." type="array">
             <type>array</type>
           </tag>
-          <tag name="throws" line="238" description="If the request fails." type="\Requests_Exception_HTTP">
-            <type>\Requests_Exception_HTTP</type>
+          <tag name="throws" line="246" description="If the request fails." type="\Monk\Cms\Exception">
+            <type>\Monk\Cms\Exception</type>
           </tag>
         </docblock>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
+  </file>
+  <file path="Cms/Exception.php" generated-path="Cms.Exception.html" hash="875567eead1ac80a8272a96a6fab6901" package="Default">
+    <docblock line="0">
+      <description>Global MonkCMS namespace.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Monk\Cms" line="10" package="Default">
+      <extends>\Exception</extends>
+      <name>Exception</name>
+      <full_name>\Monk\Cms\Exception</full_name>
+      <docblock line="10">
+        <description>A MonkCMS PHP exception.</description>
+        <long-description></long-description>
+        <tag name="package" line="10" description="Default"/>
+      </docblock>
+    </class>
+    <source>eJyzsS/IKODS19LiUtBScM/JT0rMUfDNz8t29g1WyEvMTS0uSExO1QNK6nPBuWAFMc65xdZcMJ2OcE0BHgEKqRXJqQUlmfl5EI3JOYnFxQquMEGgdElqXkqxQgxciKuaq5YLAFcQKyk=</source>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="global" full_name="global"/>
-  <namespace name="Monk" full_name="Monk"/>
+  <namespace name="Monk" full_name="Monk">
+    <namespace name="Cms" full_name="Monk\Cms"/>
+  </namespace>
   <deprecated count="0"/>
 </project>
