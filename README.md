@@ -27,7 +27,7 @@ Using [Composer](http://getcomposer.org), add `monkdev/monkcms` to your
 ```json
 {
   "require": {
-    "monkdev/monkcms": "~1.0"
+    "monkdev/monkcms": "~0.2"
   }
 }
 ```
@@ -39,7 +39,7 @@ $ composer update
 Or:
 
 ```bash
-$ composer require monkdev/monkcms:~1.0
+$ composer require monkdev/monkcms:~0.2
 ```
 
 ### Configure
