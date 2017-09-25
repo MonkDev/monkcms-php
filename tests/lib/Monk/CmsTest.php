@@ -64,7 +64,8 @@ class CmsTest extends TestCase
      */
     public function testSetDefaultConfigReturnsNewDefaultConfig()
     {
-        $defaultConfig = Cms::setDefaultConfig(array('siteId' => 12345));
+        $defaultConfig = Cms
+        ::setDefaultConfig(array('siteId' => 12345));
 
         $this->assertArraySubset(array('siteId' => 12345), $defaultConfig);
 
@@ -124,7 +125,7 @@ class CmsTest extends TestCase
      */
     public function testGetAcceptsQueryParamsArray()
     {
-        $expectedQueryString = '?SITEID=54321&NR=4&arg0=sermon&arg1=display_%3A_list&arg2=howmany_%3A_5&arg3=json';
+        $expectedQueryString = '?SITEID=54321&CMSCODE=EKK&CMSTYPE=CMS&NR=4&arg0=sermon&arg1=display_%3A_list&arg2=howmany_%3A_5&arg3=json';
 
         $cms = new Cms(array(
             'request'    => Helpers::expectSuccessfulRequestToQueryString($this, $expectedQueryString),
@@ -144,7 +145,7 @@ class CmsTest extends TestCase
      */
     public function testGetAcceptsModuleAndDisplayQueryParamsAsSlashSeparatedString()
     {
-        $expectedQueryString = '?SITEID=54321&NR=3&arg0=sermon&arg1=display_%3A_list&arg2=json';
+        $expectedQueryString = '?SITEID=54321&CMSCODE=EKK&CMSTYPE=CMS&NR=3&arg0=sermon&arg1=display_%3A_list&arg2=json';
 
         $cms = new Cms(array(
             'request'    => Helpers::expectSuccessfulRequestToQueryString($this, $expectedQueryString),
@@ -160,7 +161,7 @@ class CmsTest extends TestCase
      */
     public function testGetAcceptsModuleAndDisplayAndFindQueryParamsAsSlashSeparatedString()
     {
-        $expectedQueryString = '?SITEID=54321&NR=4&arg0=sermon&arg1=display_%3A_detail&arg2=find_%3A_sermon-slug' .
+        $expectedQueryString = '?SITEID=54321&CMSCODE=EKK&CMSTYPE=CMS&NR=4&arg0=sermon&arg1=display_%3A_detail&arg2=find_%3A_sermon-slug' .
                                '&arg3=json';
 
         $cms = new Cms(array(
@@ -177,7 +178,7 @@ class CmsTest extends TestCase
      */
     public function testGetAcceptsSlashSeparatedStringAndQueryParamsArray()
     {
-        $expectedQueryString = '?SITEID=54321&NR=5&arg0=sermon&arg1=display_%3A_list&arg2=nonfeatures' .
+        $expectedQueryString = '?SITEID=54321&CMSCODE=EKK&CMSTYPE=CMS&NR=5&arg0=sermon&arg1=display_%3A_list&arg2=nonfeatures' .
                                '&arg3=howmany_%3A_5&arg4=json';
 
         $cms = new Cms(array(

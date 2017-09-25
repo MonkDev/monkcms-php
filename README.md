@@ -27,7 +27,7 @@ Using [Composer](http://getcomposer.org), add `monkdev/monkcms` to your
 ```json
 {
   "require": {
-    "monkdev/monkcms": "~0.2"
+    "monkdev/monkcms": "~0.3"
   }
 }
 ```
@@ -39,7 +39,7 @@ $ composer update
 Or:
 
 ```bash
-$ composer require monkdev/monkcms:~0.2
+$ composer require monkdev/monkcms:~0.3
 ```
 
 ### Configure
@@ -71,6 +71,19 @@ Monk\Cms::setDefaultConfig(array(
     'siteId'     => 12345,
     'siteSecret' => 'secret'
 ));
+```
+
+While only the `siteId` and the `siteSecret` are required, the following configuration values are avaialble for use
+
+```php
+$defaultConfig = array(
+    'request'    => null, // Override the default Http Request library used in the package
+    'siteId'     => null, // Required
+    'siteSecret' => null, // Required
+    'cmsCode'    => 'EKK', // Override the default CMS Code
+    'cmsType'    => 'CMS', // Override the default CMS Type (Sermon Cloud/Church Cloud vs CMS Content)
+    'url'        => 'http://api.monkcms.com' // Override the default API Endpoint
+);
 ```
 
 ### Request

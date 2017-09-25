@@ -25,6 +25,8 @@ class Cms
         'request'    => null,
         'siteId'     => null,
         'siteSecret' => null,
+        'cmsCode'    => 'EKK',
+        'cmsType'    => 'CMS',
         'url'        => 'http://api.monkcms.com'
     );
 
@@ -145,6 +147,8 @@ class Cms
         $query = array();
 
         $query['SITEID'] = $config['siteId'];
+        $query['CMSCODE'] = $config['cmsCode'];
+        $query['CMSTYPE'] = $config['cmsType'];
         $query['NR'] = count($queryParams);
 
         $query = array_merge($query, self::buildRequestQueryParams($queryParams));
