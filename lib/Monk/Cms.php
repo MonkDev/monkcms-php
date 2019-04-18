@@ -38,14 +38,23 @@ class Cms
     private $config;
 
     /**
+     * Request Options values.
+     *
+     * @var array
+     */
+    private $requestOptions;
+
+    /**
      * Constructor.
      *
      * @param  array $config Config values.
      * @return self
      */
-    public function __construct(array $config = array())
+    public function __construct(array $config = array(), array $requestOptions = array())
     {
         $this->setConfig($config);
+
+        $this->setRequestOptions($requestOptions);
     }
 
     /**
@@ -89,6 +98,31 @@ class Cms
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Set the request option values.
+     *
+     * @param  array $requestOptions
+     * @return self
+     */
+    public function setRequestOptions(array $requestOptions)
+    {
+        $this->requestOptions =  array_merge($this->buildRequestAuth(), $requestOptions);
+
+        return $this;
+    }
+
+    /**
+     * Get the config values.
+     *
+     * Includes the default config values for any values that weren't set.
+     *
+     * @return array
+     */
+    public function getRequestOptions()
+    {
+        return $this->requestOptions;
     }
 
     /**
@@ -195,7 +229,7 @@ class Cms
 
         $request = $this->getRequestsSession();
 
-        $response = $request->get($this->buildRequestUrl($queryParams), array(), $this->buildRequestAuth());
+        $response = $request->get($this->buildRequestUrl($queryParams), array(), $this->getRequestOptions());
 
         try {
             $response->throw_for_status();

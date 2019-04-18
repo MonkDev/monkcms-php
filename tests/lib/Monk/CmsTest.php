@@ -121,6 +121,17 @@ class CmsTest extends TestCase
     }
 
     /**
+     * @group setRequestOptions()
+     *
+     */
+    public function testRequestOptions()
+    {
+        $cms = new Cms(array('siteId' => 54321), array('timeout' => 30));
+
+        $this->assertArraySubset(array('timeout' => 30), $cms->getRequestOptions());
+    }
+
+    /**
      * @group get
      */
     public function testGetAcceptsQueryParamsArray()
