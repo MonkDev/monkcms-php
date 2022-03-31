@@ -239,7 +239,33 @@ class Cms
 
         $responseBody = substr($response->body, 10);
 
-        return json_decode($responseBody, true);
+        return json_decode($this->replacePlaceholderValues($responseBody), true);
+    }
+
+    /**
+     * Replace placeholder values with the expected values
+     * 
+     * @param string $body
+     * @return string
+     */
+    private function replacePlaceholderValues($body)
+    {
+        $body = str_replace('<mcms-interactive-answer>', '{{', $body);
+        $body = str_replace('</mcms-interactive-answer>', '}}', $body);
+        $body = str_replace('<mcms-interactive-free-form>', '{##', $body);
+        $body = str_replace('</mcms-interactive-free-form>', '##}', $body);
+        // if requesting json the tag may be escaped
+        $body = str_replace('<\/mcms-interactive-answer>', '}}', $body);
+        $body = str_replace('<\/mcms-interactive-free-form>', '##}', $body);
+
+        if (array_key_exists('HTTP_ACCEPT', $_SERVER) && in_array('image/webp', explode(',', $_SERVER['HTTP_ACCEPT']))) {
+            $body = str_replace('MONK_IMAGE_FORMAT_REPLACE_ME', 'webp', $body);
+        } else {
+            // If the browser does not support webp, remove the format line altogether
+            $body = str_replace('?fm=MONK_IMAGE_FORMAT_REPLACE_ME', '', $body);
+        }
+
+        return $body;
     }
 
     /**
