@@ -146,7 +146,7 @@ $cms->get(array(
 ));
 ```
 
-### 2. Using an array
+#### 2. Using an array
 
 For example:
 
