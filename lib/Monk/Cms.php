@@ -191,6 +191,9 @@ class Cms
         $query['CMSCODE'] = $config['cmsCode'];
         $query['CMSTYPE'] = $config['cmsType'];
         if (isset($queryParams['show']) && is_array($queryParams['show'])) {
+            // To count the number of params correctly , we do not count
+            // if the value of the show key is an array. Therefore, we have -1.
+            // However,we care about its total items, so we add it
             $query['NR'] = count($queryParams) + count($queryParams['show']) - 1;
         } else {
             $query['NR'] = count($queryParams);
