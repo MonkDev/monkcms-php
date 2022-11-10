@@ -153,16 +153,23 @@ class Cms
         $count = 0;
 
         foreach ($queryParams as $key => $value) {
-            $queryParam = "{$key}_:_{$value}";
+            if ($key==="show" && is_array($value)) {
+                foreach ($value as $showValue) {
+                    $queryParam = "{$key}_:_{$showValue}";
+                    $query["arg{$count}"] = $queryParam;
+                    $count++;
+                }
+            } else {
+                $queryParam = "{$key}_:_{$value}";
 
-            if ($key == 'module') {
-                $queryParam = $value;
-            } elseif ($value === true) {
-                $queryParam = $key;
+                if ($key == 'module') {
+                    $queryParam = $value;
+                } elseif ($value === true) {
+                    $queryParam = $key;
+                }
+                $query["arg{$count}"] = $queryParam;
+                $count++;
             }
-
-            $query["arg{$count}"] = $queryParam;
-            $count++;
         }
 
         return $query;
@@ -183,8 +190,14 @@ class Cms
         $query['SITEID'] = $config['siteId'];
         $query['CMSCODE'] = $config['cmsCode'];
         $query['CMSTYPE'] = $config['cmsType'];
-        $query['NR'] = count($queryParams);
-
+        if (isset($queryParams['show']) && is_array($queryParams['show'])) {
+            // To count the number of params correctly , we do not count
+            // if the value of the show key is an array. Therefore, we have -1.
+            // However,we care about its total items, so we add it
+            $query['NR'] = count($queryParams) + count($queryParams['show']) - 1;
+        } else {
+            $query['NR'] = count($queryParams);
+        }
         $query = array_merge($query, self::buildRequestQueryParams($queryParams));
 
         return http_build_query($query);
@@ -244,7 +257,7 @@ class Cms
 
     /**
      * Replace placeholder values with the expected values
-     * 
+     *
      * @param string $body
      * @return string
      */
