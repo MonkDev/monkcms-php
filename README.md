@@ -126,6 +126,45 @@ in associative array form. So, for example, a sermon's title can be accessed at
 
 If a failure occurs, `get` throws a `Monk\Cms\Exception`.
 
+### Multiple shows
+
+If you want to use `show` key to format API output, there are 2 ways
+
+#### 1. Using inline string
+
+For example:
+
+```php
+$cms->get(array(
+  'module'  => 'smallgroup',
+  'display' => 'list',
+  'order' => 'recent',
+  'emailencode' => 'no',
+  'howmany' => 1,
+  'page' => 1,
+  'show' => "___starttime format='g:ia'__ __endtime format='g:ia'__",
+));
+```
+
+#### 2. Using an array
+
+For example:
+
+```php
+$cms->get(array(
+  'module'  => 'smallgroup',
+  'display' => 'list',
+  'order' => 'recent',
+  'emailencode' => 'no',
+  'howmany' => 1,
+  'page' => 1,
+  'show' => [
+    "__starttime format='g:ia'__",
+    "__endtime format='g:ia'__"
+  ]
+));
+```
+
 Development
 -----------
 
